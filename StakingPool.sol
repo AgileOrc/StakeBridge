@@ -90,7 +90,6 @@ contract StakingPool {
         emit RewardRateUpdated(_newRate);
     }
 
-    // Fungsi darurat: Memiliki pengecekan owner, namun owner dapat dibajak melalui VULN-1
     function emergencyWithdraw() external {
         require(msg.sender == owner, "Only owner can call emergency withdraw");
         uint256 balance = stakingToken.balanceOf(address(this));
